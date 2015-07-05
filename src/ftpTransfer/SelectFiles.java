@@ -238,11 +238,11 @@ public class SelectFiles extends javax.swing.JFrame {
                 txtAdd.setText(temp.getAbsolutePath());
             }
 
-            log.log(Level.INFO, "{0}Files selected", sel.length);
+            log.log(Level.CONFIG, "{0}Files selected", sel.length);
             //System.out.println(sel.length+ "Files selected");
-            log.log(Level.INFO, fo.getCurrentDirectory().toString());
+            log.log(Level.FINE, fo.getCurrentDirectory().toString());
             //System.out.println(fo.getCurrentDirectory());
-            log.log(Level.INFO, temp.getParentFile().getName());
+            log.log(Level.FINE, temp.getParentFile().getName());
             //System.out.println(temp.getParentFile().getName());
 
           //  System.out.println("parent dir  "+sel[0].getCanonicalPath());
@@ -251,7 +251,7 @@ public class SelectFiles extends javax.swing.JFrame {
             for (File sel1 : sel) {
                 file = sel1;
                 if (file.isFile()) {
-                    log.log(Level.INFO, file.getName() + " " + file.getAbsolutePath());
+                    log.log(Level.FINE, file.getName() + " " + file.getAbsolutePath());
                     //System.out.println(file.getName()+" "+file.getAbsolutePath());
                     list.addElement(file.getName());
                     filepaths.add(file.getAbsolutePath());

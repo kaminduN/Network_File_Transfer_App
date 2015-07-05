@@ -1,6 +1,10 @@
 package ftp;
 
-
+/**
+ *
+ * @author Kamindu 
+ * @Written ‎August ‎‎2012
+ */
 
 
 
@@ -31,6 +35,8 @@ public class Server extends JFrame {
    
    private JLabel lblNo;//total file count display used along with lblNo_1
    private JLabel lblNo_1;//files that have received => output in format (xx of)
+   
+   private JLabel lblClient;//displays whos ip is showing
    /**
     * Launch the application.
     * Core Code of the server and GUI
@@ -38,11 +44,32 @@ public class Server extends JFrame {
     * TODO- implement Transfer button and Reset buttons (btnTransfer,btnReset )
     */
    
-        
-        public void setIP(String clientIP)
+    /**
+     * Launch the application.Core Code of the server and GUI
+ 
+ TODO- implement Transfer button and Reset buttons (btnTransfer,btnReset )
+     * 
+     */
+   
+   /**
+    * 
+    * @param clientIP - ip of the client that is connected called from FileServer class
+    */
+    public void setIP(String clientIP)
         {
-          lblIp.setText(clientIP);  
-        }        
+          lblIp.setText(clientIP); 
+          lblClient.setText("Client");
+        }
+    
+    /**
+     * 
+     * @param serverIP - set the server ip and label, called from FileServer class
+     */
+    public void setSIP(String serverIP)
+        {
+          lblIp.setText(serverIP); 
+          lblClient.setText("Server");
+        }  
         
         public void setFileCount(int num)
         {
@@ -224,7 +251,7 @@ public class Server extends JFrame {
 		);
 		panel_1.setLayout(gl_panel_1);
 		
-		JLabel lblClient = new JLabel("Client");
+		lblClient = new JLabel("Server");//initially shows the Server Ip - will change to client when client ip is set
 		
 		lblIp = new JLabel("IP");
 		

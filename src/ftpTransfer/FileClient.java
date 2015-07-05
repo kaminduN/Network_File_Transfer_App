@@ -84,11 +84,11 @@ public class FileClient {
 
         dos.writeUTF(myFile.getParentFile().getName() + "/" + myFile.getName());//send the file name
 
-        log.log(Level.INFO, "{0}/{1}", new String[]{myFile.getParentFile().getName(), myFile.getName()});
+        log.log(Level.FINE, "{0}/{1}", new String[]{myFile.getParentFile().getName(), myFile.getName()});
             //System.out.println();
         // dos.writeBytes(myFile.getParentFile().getName());
 
-        log.log(Level.INFO, "Size {0}", mybytearray.length);
+        log.log(Level.FINE, "Size {0}", mybytearray.length);
             //System.out.println("Size "+mybytearray.length);
 
         dos.writeLong(mybytearray.length);

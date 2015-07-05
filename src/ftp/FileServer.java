@@ -8,8 +8,12 @@ package ftp;
 
 //import java.net.*;     
 import java.io.*;     
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
     /**
      * This is the Server Main class of the File Transfer application.
      * This will Receive the files from clients
@@ -30,6 +34,7 @@ import java.net.Socket;
         
         ServerSocket serverSocket = null;  
         serverSocket = new ServerSocket(5000);//open port 5000 for communications  
+        srv.setSIP(getServerIP());//updates the server ip in the gui initially.
         
         while(true) { //run as long as files are received 
             Socket clientSocket = null;  
@@ -86,12 +91,28 @@ import java.net.Socket;
             // Closing the FileOutputStream handle  
             output.close();  
         }  
-      }
+      }//end of main
       
      /**
       * Reset server for a new session
       */ 
-    
+      
+    /**
+     * to get the server ip for easy connectivity of the client
+     * 
+     * @return return the Server ip (the computer which the server is running )
+     * in case of error returns -
+     */  
+    private static String getServerIP(){
+        
+          try {
+              InetAddress IP=InetAddress.getLocalHost();
+              return ":"+IP.getHostAddress();
+          } catch (UnknownHostException ex) {
+              Logger.getLogger(FileServer.class.getName()).log(Level.SEVERE, "server error occured", ex);
+          }
+          return "-";
+    }
       
       
     }  
